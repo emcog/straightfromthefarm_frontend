@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <button v-on:click="getPostcodes">I am your button</button>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
@@ -11,15 +12,22 @@
 export default {
   data() {
     return {
-      prospectsAndCustomers: []
+      prospectsAndCustomers: [],
+      postcodes : []
     }
   },
 
-mounted() {
-  fetch('./ImportedData/customers2020.json')
-  .then(res => res.json())
-  .then(prospectsAndCustomers => this.prospectsAndCustomers = prospectsAndCustomers )
-},
+  methods: {
+    getPostcodes : function(prospectsAndCustomers) {
+      return this.postcodes = this.prospectsAndCustomers.map(prospectsAndCustomer => prospectsAndCustomer.Postcode)
+    }
+  },
+
+  mounted() {
+    fetch('./ImportedData/customers2020.json')
+    .then(res => res.json())
+    .then(prospectsAndCustomers => this.prospectsAndCustomers = prospectsAndCustomers )
+  },
 
 name: 'App',
   components: {
