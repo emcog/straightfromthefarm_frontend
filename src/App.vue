@@ -1,19 +1,32 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      prospectsAndCustomers: []
+    }
+  },
+
+mounted() {
+  fetch('./ImportedData/customers2020.json')
+  .then(res => res.json())
+  .then(prospectsAndCustomers => this.prospectsAndCustomers = prospectsAndCustomers )
+},
+
+name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld
   }
 }
+
 </script>
 
 <style>
@@ -26,3 +39,10 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+
+
+
+//  {
+//   "postcodes" : ["OX49 5NU", "M32 0JG", "NE30 1DP"]
+//     }
