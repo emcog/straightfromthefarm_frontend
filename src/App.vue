@@ -1,9 +1,11 @@
 <template>
   <div id="app">
+    <map-locations></map-locations>
     <img alt="Vue logo" src="./assets/logo.png"><br>
     <button v-on:click="aboutPostcode">About postcode</button>
 
     <button v-on:click="postPostCodeAPI">postPostCodeAPI</button>
+    
 
     <br><span>{ postcodes:{{ postcodes }}}</span>
 
@@ -11,6 +13,7 @@
 </template>
 
 <script>
+import MapLocations from './components/MapLocations.vue';
 
 export default {
   data() {
@@ -82,7 +85,7 @@ export default {
 
 name: 'App',
   components: {
-    // CustomersAndProspects
+    "map-locations" : MapLocations
   }
 }
 

@@ -7,11 +7,10 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@mailchimp/mailchimp_marketing": "^3.0.27",
     "core-js": "^3.6.5",
     "leaflet": "^1.7.1",
-    "node-postcodes.io": "^1.0.2",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue2-leaflet": "^2.6.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
