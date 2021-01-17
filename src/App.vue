@@ -44,6 +44,14 @@ export default {
     // loop over each entry in array
     // if aboutPostcode.result.postcode === postcode
     // then customersAndProspects[i].longitude = aboutPostcode.result.latitude && customersAndProspects[i].latitude
+    appendLongLatToCAP : function(postcode) {
+      this.customersAndProspects.forEach(person => {
+          if (person.postcode == postcode) {
+            person.longitude = this.aboutPostcode.longitude;
+            person.latitude = this.aboutPostcode.latitude;
+          }
+      });
+    }
 
 
     postLog : function(url = '', data = {}) {
