@@ -4,9 +4,10 @@
     <customers-and-prospects-list></customers-and-prospects-list>
     <button v-on:click="handlePostcode">About postcode</button>
     <button v-on:click="postPostCodeAPI">postPostCodeAPI</button>
+    <button v-on:click="appendLongLatToCAP('KY11 3AE')">Append</button>
+    <span>{{customersAndProspects}}</span>
     <br><span> postcodes: {{ postcodes }}</span>
     <span>about eh6 8nx {{aboutPostcode.result.longitude }}, {{aboutPostcode.result.latitude }} {{aboutPostcode.result.postcode}}</span>
-
   </div>
 </template>
 
@@ -51,7 +52,7 @@ export default {
             person.latitude = this.aboutPostcode.latitude;
           }
       });
-    }
+    },
 
 
     postLog : function(url = '', data = {}) {
