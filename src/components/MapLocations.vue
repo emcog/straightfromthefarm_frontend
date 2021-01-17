@@ -24,7 +24,15 @@
         :url="url"
         :attribution="attribution"
       />
-      <l-marker :lat-lng="withPopup">
+      <l-marker :lat-lng="[56.2721797,-3.1917579,11.58]" :icon="icon" > </l-marker>
+      <!-- <l-marker :lat-lng="[56.2721797,-3.1917579,11.58]"> -->
+        <!-- <l-icon
+          :icon-size="dynamicSize"
+          :icon-anchor="dynamicAnchor"
+          icon-url="../assets/map-pin.png"
+        /> -->
+        </l-marker>
+      <!-- <l-marker :lat-lng="withPopup">
         <l-popup>
           <div @click="innerClick">
             I am a popup
@@ -47,14 +55,14 @@
             </p>
           </div>
         </l-tooltip>
-      </l-marker>
+      </l-marker> -->
     </l-map>
   </div>
 </template>
 
 <script>
 import { latLng } from "leaflet";
-import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker, LIcon,  LPopup, LTooltip } from "vue2-leaflet";
 
 export default {
   name: "Example",
@@ -68,11 +76,16 @@ export default {
   data() {
     return {
       zoom: 9.5,
-      center: latLng(56.238655, -3.333125),
+      center: latLng(56.2584158,-3.2615207,17),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      withPopup: latLng(47.41322, -1.219482),
+      icon: L.icon({
+        iconUrl: '../assets/map-pin.png',
+        iconSize: [32, 37],
+        iconAnchor: [16, 37]
+      }),
+      withPopup: latLng(56.2584158, -3.2615207,17),
       withTooltip: latLng(47.41422, -1.250482),
       currentZoom: 11.5,
       currentCenter: latLng(47.41322, -1.219482),

@@ -1,25 +1,25 @@
-<template>
-  <div id="app">
-    <map-locations></map-locations>
-    <img alt="Vue logo" src="./assets/logo.png"><br>
-    <button v-on:click="aboutPostcode">About postcode</button>
-
+<template lang="html">
+  <div id = "app">
+    <map-locations/>
+    <customers-and-prospects-list></customers-and-prospects-list>
+    <button v-on:click="handlePostcode">About postcode</button>
     <button v-on:click="postPostCodeAPI">postPostCodeAPI</button>
-    
-
-    <br><span>{ postcodes:{{ postcodes }}}</span>
+    <br><span> postcodes: {{ postcodes }}</span>
+    <span>about eh6 8nx {{aboutPostcode.result.longitude }}, {{aboutPostcode.result.latitude }} {{aboutPostcode.result.postcode}}</span>
 
   </div>
 </template>
 
 <script>
+import CustomersAndProspectsList from './components/CustomersAndProspectsList.vue';
 import MapLocations from './components/MapLocations.vue';
 
 export default {
   data() {
     return {
-      prospectsAndCustomers: [],
+      customersAndProspects: [],
       postcodes : { postcodes : [] },
+      aboutPostcode: {},
       aboutPostCodes : {}
     }
   },
@@ -27,19 +27,23 @@ export default {
   methods: {
     
     stripPostcodes : function(prospectsAndCustomers) {
-      let postcodesArray = this.prospectsAndCustomers.map(prospectsAndCustomer => prospectsAndCustomer.postcode)
+      let postcodesArray = this.customersAndProspects.map(customersAndProspects => customersAndProspects.postcode)
       return this.postcodes.postcodes = postcodesArray;
     },
 
-      // get this working
-      // take an index on click
-      // return the lat & long
-      // put on a map
-    aboutPostcode: function() {
-      fetch('http://api.postcodes.io/postcodes/eh68dx')
-      .then(response => response.json())
-      .then(data => console.log(data));
-    },
+
+    // handlePostcode: function() {
+    //   fetch('http://api.postcodes.io/postcodes/eh68dx')
+    //   .then(response => response.json())
+    //   .then(data => this.aboutPostcode = data)
+    //   // .then(data => console.log(data));
+    // },
+
+
+    // 
+    // loop over each entry in array
+    // if aboutPostcode.result.postcode === postcode
+    // then customersAndProspects[i].longitude = aboutPostcode.result.latitude && customersAndProspects[i].latitude
 
 
     postLog : function(url = '', data = {}) {
@@ -75,17 +79,27 @@ export default {
     }
   },
 
+  computed: {
+     handlePostcode: function() {
+      fetch('http://api.postcodes.io/postcodes/eh68dx')
+      .then(response => response.json())
+      .then(data => this.aboutPostcode = data)
+    }
+
+  },
+
   mounted() {
     fetch('./ImportedData/customers2020.json')
     .then(res => res.json())
-    .then(prospectsAndCustomers => this.prospectsAndCustomers = prospectsAndCustomers )
+    .then(customersAndProspects => this.customersAndProspects = customersAndProspects )
     .then(this.stripPostcodes)
-    .then(this.postData("http://api.postcodes.io/postcodes", this.postcodes ))
+    // .then(this.postData("http://api.postcodes.io/postcodes", this.postcodes ))
   },
 
 name: 'App',
   components: {
-    "map-locations" : MapLocations
+    "map-locations" : MapLocations,
+    "customers-and-prospects-list" : CustomersAndProspectsList
   }
 }
 
