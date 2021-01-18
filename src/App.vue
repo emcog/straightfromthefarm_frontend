@@ -1,13 +1,14 @@
 <template lang="html">
   <div id = "app">
-    <customers-and-prospects-list></customers-and-prospects-list>
+    <customers-and-prospects-list/>
+    <!-- Various tests below -->
+    <!-- <ul><li v-for="(person, index) in customersAndProspects" v-bind:key="index" :person="person">{{person}}</li></ul> -->
     <!-- <span>{{customersAndProspects}}</span> -->
     <!-- <br><span> postcodes: {{ postcodes }}</span> -->
   </div>
 </template>
 
 <script>
-
 import CustomersAndProspectsList from './components/CustomersAndProspectsList.vue';
 
 export default {
