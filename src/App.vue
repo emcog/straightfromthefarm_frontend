@@ -1,8 +1,8 @@
 <template lang="html">
   <div id = "app">
-    <customers-and-prospects-list></customers-and-prospects-list>
-    <!-- <span>{{customersAndProspects}}</span> -->
-    <!-- <br><span> postcodes: {{ postcodes }}</span> -->
+    <!-- <customers-and-prospects-list></customers-and-prospects-list> -->
+    <span>{{customersAndProspects}}</span>
+    <br><span> postcodes: {{ postcodes }}</span>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
     },
 
     mounted() {
-        fetch('./ImportedData/customers2020.json')
+        fetch('./ImportedData/annonymisedData.json')
         .then(res => res.json())
         .then(data => this.customersAndProspects = data )
         .then(this.stripPostcodes)
