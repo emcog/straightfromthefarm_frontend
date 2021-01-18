@@ -1,7 +1,8 @@
 <template lang="html">
   <div id = "app">
-    <span>{{customersAndProspects}}</span>
-    <br><span> postcodes: {{ postcodes }}</span>
+    <customers-and-prospects-list></customers-and-prospects-list>
+    <!-- <span>{{customersAndProspects}}</span> -->
+    <!-- <br><span> postcodes: {{ postcodes }}</span> -->
   </div>
 </template>
 
