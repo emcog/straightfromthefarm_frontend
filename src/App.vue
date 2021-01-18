@@ -15,14 +15,14 @@ export default {
   data() {
     return {
       customersAndProspects: [],
-      postcodes : { postcodes : [] }
+      bulkPostcodes : { postcodes : [] }
     }
   },
 
     methods: {
         stripPostcodes : function(prospectsAndCustomers) {
             let postcodesArray = this.customersAndProspects.map(customersAndProspects => customersAndProspects.postcode)
-            return this.postcodes.postcodes = postcodesArray;
+            return this.bulkPostcodes.postcodes = postcodesArray;
             }
     },
 
@@ -30,7 +30,7 @@ export default {
         fetch('./ImportedData/annonymisedData.json')
         .then(res => res.json())
         .then(data => this.customersAndProspects = data )
-        // .then(this.stripPostcodes)
+        .then(this.stripPostcodes)
     },
     components: {
         "customers-and-prospects-list" : CustomersAndProspectsList
