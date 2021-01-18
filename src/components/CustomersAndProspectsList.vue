@@ -11,10 +11,10 @@ import CAPListItem from './CAPListItem';
 
 export default {
     name: "customers-and-prospects-list",
+
+    data() { return {} },
     props: ["customersAndProspects"],
-    components: {
-     "cap-list-item": CAPListItem
-    }
+    components: { "cap-list-item": CAPListItem }
 }
 </script>
 
