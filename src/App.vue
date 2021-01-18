@@ -32,10 +32,8 @@ export default {
         .then(data => this.customersAndProspects = data )
         // .then(this.stripPostcodes)
     },
-
-    name: 'App',
-        components: {
-            "customers-and-prospects-list" : CustomersAndProspectsList
+    components: {
+        "customers-and-prospects-list" : CustomersAndProspectsList
     }
 }
 
