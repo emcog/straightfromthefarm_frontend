@@ -29,6 +29,7 @@ export default {
         fetch('./ImportedData/customers2020.json')
         .then(res => res.json())
         .then(data => this.customersAndProspects = data )
+        .then(this.stripPostcodes)
     },
 
     name: 'App',
