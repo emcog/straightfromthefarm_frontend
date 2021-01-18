@@ -19,10 +19,9 @@ export default {
   },
 
     methods: {
-    
         stripPostcodes : function(prospectsAndCustomers) {
-        let postcodesArray = this.customersAndProspects.map(customersAndProspects => customersAndProspects.postcode)
-        return this.postcodes.postcodes = postcodesArray;
+            let postcodesArray = this.customersAndProspects.map(customersAndProspects => customersAndProspects.postcode)
+            return this.postcodes.postcodes = postcodesArray;
             }
     },
 

@@ -1,5 +1,6 @@
 <template lang="html">
   <li> 
+    banana list item
     {{ person }}
     <!-- <span>{{ customer.fName }}</span>
     <span>{{ customer.postcode }}</span>
@@ -12,10 +13,12 @@
 
 <script>
 export default {
+  name: "cap-list-item",
+  
   data(){
     return {}
   },
-  name: "cap-list-item",
+  
   props: ["customersAndProspects"]
 }
 </script>
