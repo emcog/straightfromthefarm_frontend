@@ -1,6 +1,7 @@
 // copied from MDN docs https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 // Example POST method implementation:
+/*
     async function postData(url = '', data = {}) {
         // Default options are marked with *
         const response = await fetch(url, {
@@ -18,3 +19,5 @@
       });
       return response.json(); // parses JSON response into native JavaScript objects
     }
+*/
+

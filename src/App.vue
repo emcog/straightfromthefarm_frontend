@@ -1,6 +1,6 @@
 <template lang="html">
   <div id = "app">
-    <customers-and-prospects-list/>
+    <customers-and-prospects-list :customersAndProspects="customersAndProspects"/>
     <!-- Various tests below -->
     <!-- <ul><li v-for="(person, index) in customersAndProspects" v-bind:key="index" :person="person">{{person}}</li></ul> -->
     <!-- <span>{{customersAndProspects}}</span> -->
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+
 import CustomersAndProspectsList from './components/CustomersAndProspectsList.vue';
 
 export default {
@@ -27,7 +28,7 @@ export default {
     },
 
     mounted() {
-        fetch('./ImportedData/annonymisedData.json')
+        fetch('../data/annonymisedData.json')
         .then(res => res.json())
         .then(data => this.customersAndProspects = data )
         .then(this.stripPostcodes)

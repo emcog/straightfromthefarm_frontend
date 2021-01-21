@@ -1,12 +1,9 @@
 <template lang="html">
   <li> 
-    banana list item
-    {{ person }}
-    <!-- <span>{{ customer.fName }}</span>
-    <span>{{ customer.postcode }}</span>
-    <span>{{ customer.longlat }}</span>
+    <span>{{ person.firstName }}</span>
+    <span>{{ person.postcode }}</span>
     <button>Get long and lat data</button>
-    <button>Put on the map</button> -->
+    <button>Put on the map</button> 
   </li>
 </template>
 
@@ -19,7 +16,7 @@ export default {
     return {}
   },
   
-  props: ["customersAndProspects"]
+  props: ["person"]
 }
 </script>
 
